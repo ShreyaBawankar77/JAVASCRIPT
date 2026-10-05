@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Demonstration</title>
+
+    <!-- Internal JavaScript -->
+    <script>
+        function internalMessage() {
+            document.getElementById("internal").innerHTML =
+                "This message is generated using Internal JavaScript.";
+
+            console.log("Internal JavaScript function executed.");
+        }
+
+        console.info("Page is loading...");
+        console.warn("This is a warning message.");
+        console.error("This is an example error message.");
+    </script>
+</head>
+
+<body>
+
+    <h1>JavaScript Demonstration</h1>
+
+    <!-- User Information -->
+    <h2>User Information</h2>
+    <p><b>Name:</b> Shreya</p>
+    <p><b>Course:</b> Computer Science Engineering</p>
+    <p><b>College:</b> Symbiosis Institute of Technology, Nagpur</p>
+
+    <!-- Welcome Message -->
+    <h2 id="welcome"></h2>
+
+    <!-- Inline JavaScript -->
+    <button onclick="document.getElementById('welcome').innerHTML =
+        'Welcome to JavaScript, Shreya!'; 
+        console.log('Inline JavaScript executed.');">
+        Show Welcome Message
+    </button>
+
+    <br><br>
+
+    <!-- Internal JavaScript -->
+    <button onclick="internalMessage()">
+        Show Internal JS Message
+    </button>
+
+    <p id="internal"></p>
+
+    <!-- External JavaScript -->
+    <button onclick="externalMessage()">
+        Show External JS Message
+    </button>
+
+    <p id="external"></p>
+
+    <!-- Link External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
