@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Calculator</title>
+</head>
+<body>
+
+    <h1>Billing Calculator</h1>
+
+    <label>Customer Name:</label>
+    <input type="text" id="name">
+    <br><br>
+
+    <label>Item Name:</label>
+    <input type="text" id="item">
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity">
+    <br><br>
+
+    <label>Price per Item:</label>
+    <input type="number" id="price">
+    <br><br>
+
+    <label>GST (%):</label>
+    <input type="number" id="gst" value="18">
+    <br><br>
+
+    <button onclick="calculateBill()">Calculate Bill</button>
+
+    <h2>Bill</h2>
+    <div id="result"></div>
+
+    <script>
+        function calculateBill() {
+
+            // var - function scoped variable
+            var customerName = document.getElementById("name").value;
+
+            // let - block scoped variable
+            let itemName = document.getElementById("item").value;
+            let quantity = Number(document.getElementById("quantity").value);
+            let price = Number(document.getElementById("price").value);
+
+            // const - value cannot be reassigned
+            const gstRate = Number(document.getElementById("gst").value);
+
+            // Calculate amount
+            let subtotal = quantity * price;
+            let gstAmount = subtotal * gstRate / 100;
+            let total = subtotal + gstAmount;
+
+            // Destructuring
+            let bill = {
+                customer: customerName,
+                item: itemName,
+                quantity: quantity,
+                total: total
+            };
+
+            let { customer, item, total: finalAmount } = bill;
+
+            // Template literal
+            let message = `
+                <p><b>Customer Name:</b> ${customer}</p>
+                <p><b>Item:</b> ${item}</p>
+                <p><b>Quantity:</b> ${quantity}</p>
+                <p><b>Price per Item:</b> ₹${price.toFixed(2)}</p>
+                <p><b>Subtotal:</b> ₹${subtotal.toFixed(2)}</p>
+                <p><b>GST (${gstRate}%):</b> ₹${gstAmount.toFixed(2)}</p>
+                <hr>
+                <h3>Total Bill: ₹${finalAmount.toFixed(2)}</h3>
+            `;
+
+            document.getElementById("result").innerHTML = message;
+
+            console.log("Customer:", customer);
+            console.log("Item:", item);
+            console.log("Total Bill:", finalAmount);
+        }
+    </script>
+
+</body>
+</html>
