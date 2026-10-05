@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Data Display</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <h1>JSON Data</h1>
+
+    <button onclick="loadWithFetch()">Load using Fetch()</button>
+
+    <button onclick="loadWithJQuery()">Load using jQuery</button>
+
+    <br><br>
+
+    <table border="1" id="dataTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
